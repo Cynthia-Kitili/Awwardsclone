@@ -6,6 +6,7 @@ from django.dispatch import receiver
 from django.utils import timezone
 from django.core.validators import MaxValueValidator, MinValueValidator
 import numpy as np
+from django.utils import timezone
 # Create your models here.
 
 class Profile(models.Model):
@@ -53,7 +54,7 @@ class Project(models.Model):
     description = HTMLField()
     # description = models.CharField(max_length=60,blank=True)
     link = models.URLField(blank=True)
-    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=True,on_delete=models.CASCADE)
     profile = models.ForeignKey(Profile,null=True,on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
 
@@ -120,7 +121,7 @@ class Review(models.Model):
     average =  models.DecimalField(default=1,blank=False,decimal_places=2,max_digits=40)
     project = models.ForeignKey(Project,null=True,on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User,null=True,blank=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User,null=True,blank=True,on_delete=models.CASCADE)
 
     # usability =  models.PositiveIntegerField(default=0,blank=True, validators=[MaxValueValidator(10),])
     # content =  models.PositiveIntegerField(default=0,blank=True, validators=[MaxValueValidator(10),])
