@@ -4,7 +4,6 @@ from rate.models import *
 from rate.forms import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
@@ -14,6 +13,8 @@ from .permissions import IsAdminOrReadOnly
 from django.http import HttpResponseRedirect
 # from django.core.urlresolvers import reverse
 from django.urls import reverse
+from django.contrib.auth import logout
+
 
 
 # Create your views here.
@@ -146,6 +147,12 @@ def review_detail(request, review_id):
     review = get_object_or_404(Review, pk=review_id)
     return render(request, 'review_detail.html', {'review': review})
 
+@login_required(login_url="/accounts/login/")
+def logout_request(request):
+    logout(request)
+    return redirect('/')
+
+
 def search_projects(request):
     # profile = Profile.get_profile()
 
@@ -255,3 +262,4 @@ class ProfileDescription(APIView):
         profile = self.get_profile(pk)
         profile.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+

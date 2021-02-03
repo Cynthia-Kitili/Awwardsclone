@@ -14,12 +14,14 @@
     background: background-color;
     border-radius: 50%;
 }
+
     __circle {
       width: 100%;
       height: 100%;
   
-      animation: rotate animation linear infinite;
-    }
+      animation: rotate animation-time linear infinite;
+    }     
+  
       :after, :before {
         content: '';
   
@@ -32,7 +34,6 @@
         height: 50%;
       }
   
-      
       :before {
         border-radius: size size 0 0;
         background-image: linear-gradient(to right, rgba(circle-color, .5), circle-color);
@@ -54,14 +55,14 @@
       transform: translate(-50%, -50%);
       z-index: 2;
   
-      
+
       height: 90%;
       width: 90%;
   
       background: #fff;
       border-radius: 50%;
     }
-
+  
   
   @keyframes rotate {
       0% {
@@ -86,7 +87,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-    __value, __unit {
+  __value__unit {
       display: block;
   
       text-align: center;
@@ -116,9 +117,9 @@
   }
     .far:hover{
       color:#2984D0;
+    
+  
     }
-  
-  
   
   #navbarrr{
     /* #00A3B4 */

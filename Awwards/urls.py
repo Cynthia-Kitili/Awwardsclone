@@ -1,5 +1,4 @@
 """Awwards URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
 Examples:
@@ -26,7 +25,6 @@ urlpatterns = [
     url(r'', include('rate.urls')),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^logout/$', views.logout, {"next_page": '/'}),
     url(r'^api-token-auth/', obtain_auth_token),
 
 ]
